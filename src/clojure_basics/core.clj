@@ -25,12 +25,22 @@
                          (or (nil? country)
                              (= (get person "country") country)))
                  people)]
-    [:ol
+    [:table
+     [:tr
+      [:th "ID"]
+      [:th "First Name"]
+      [:th "Last Name"]
+      [:th "Email"]
+      [:th "Country"]
+      [:th "IP Address"]]
      (map (fn [person]
-            [:li (str 
-                   (get person "first_name")
-                   " "
-                   (get person "last_name"))])
+            [:tr
+             [:td  (get person "id")]
+             [:td  (get person "first_name")]
+             [:td  (get person "last_name")]
+             [:td  (get person "email")]
+             [:td  (get person "country")]
+             [:td  (get person "ip_address")]])
        people)]))
                   
 
