@@ -43,15 +43,25 @@
              [:td  (get person "ip_address")]])
        people)]))
                   
+(defn header []
+  [:div
+   [:a {:href "/Russia"} "Russia"]
+   " "
+   [:a {:href "/Brazil"} "Brazil"]])
+   
+  
+   
+  
+
 
 (c/defroutes app
   (c/GET "/" []
     (h/html [:html
-             [:body
+             [:body (header)
               (people-html nil)]]))
   (c/GET "/:country" [country]
     (h/html [:html
-             [:body
+             [:body (header)
               (people-html country)]])))
               
 
